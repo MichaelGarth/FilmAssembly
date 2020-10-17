@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmAssembly.Tests", "FilmA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmAssembly.Logic", "FilmAssembly.Logic\FilmAssembly.Logic.csproj", "{1E136B91-97B2-482C-A2F5-4EC853750649}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E2B25440-772E-451F-BF7F-6256CA143D96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{A97F7C5A-2CDD-4619-9A7A-12BFF9418051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmAssembly.Logic.Tests", "FilmAssembly.Logic.Tests\FilmAssembly.Logic.Tests.csproj", "{DC64E012-90EA-4B21-99E1-94B5A48F9DF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +33,19 @@ Global
 		{1E136B91-97B2-482C-A2F5-4EC853750649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E136B91-97B2-482C-A2F5-4EC853750649}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E136B91-97B2-482C-A2F5-4EC853750649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC64E012-90EA-4B21-99E1-94B5A48F9DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC64E012-90EA-4B21-99E1-94B5A48F9DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC64E012-90EA-4B21-99E1-94B5A48F9DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC64E012-90EA-4B21-99E1-94B5A48F9DF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{74E945CF-D58B-4534-813D-FDEB358F65A5} = {A97F7C5A-2CDD-4619-9A7A-12BFF9418051}
+		{8B80A8E7-FF05-42C1-9E9F-26633A5A0BC9} = {E2B25440-772E-451F-BF7F-6256CA143D96}
+		{1E136B91-97B2-482C-A2F5-4EC853750649} = {A97F7C5A-2CDD-4619-9A7A-12BFF9418051}
+		{DC64E012-90EA-4B21-99E1-94B5A48F9DF3} = {E2B25440-772E-451F-BF7F-6256CA143D96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3F5707C-8CFA-4948-B1D2-A234AD670661}

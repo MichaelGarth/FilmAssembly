@@ -1,0 +1,25 @@
+﻿@model Start
+@{
+    ViewData["Title"] = "Start";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+@using (Html.BeginForm("Start", "Home", FormMethod.Post))
+{
+    @Html.DropDownListFor(m => m.MediaType, new List<SelectListItem>
+    {
+        new SelectListItem {Text = "TV Show", Value = "TV Show"},
+        new SelectListItem {Text = "Movie", Value = "Movie"}
+    },
+        "select")
+
+    @Html.TextBoxFor(m => m.Media)
+    <form method="GET">
+        <button type="submit" value="" asp-controller="Home" asp-action="AddMedia">Add Media</button>
+    </form>
+    <p>@Model.Error</p>
+}
+
+</div>
