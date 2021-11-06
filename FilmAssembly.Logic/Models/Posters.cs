@@ -2,7 +2,7 @@
 
 namespace FilmAssembly.Logic.Models
 {
-    public class ImagePosters
+    public class Posters
     {
         public List<Links> Items { get; set; }
     }

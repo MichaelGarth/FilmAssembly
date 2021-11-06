@@ -8,4 +8,8 @@
     <ProjectReference Include="..\FilmAssembly.Logic\FilmAssembly.Logic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+
 </Project>

@@ -4,52 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FilmAssembly.Models;
 using FilmAssembly.Logic;
+using FilmAssembly.Logic.Handlers;
 
 namespace FilmAssembly.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IImageHandler _imageHandler;
 
-        public HomeController(ILogger<HomeController> logger, IImageHandler imageHandler)
+        public HomeController(IImageHandler imageHandler)
         {
-            _logger = logger;
             _imageHandler = imageHandler;
-
         }
 
         [HttpGet]
-        public IActionResult Start(bool isInvalidInput)
+        public IActionResult FilmAssembly()
         {
-            if (isInvalidInput)
-            {
-                return View(new Start
-                {
-                    Error = "Not all inputs are filled out correctly, please try again..."
-                });
-            }
-
-            return View(new Start{ Error = "" });
-        }
-
-        public async Task<IActionResult> AddMedia(string media, string mediaType)
-        {
-            if (media == null || mediaType == null)
-            {
-                return RedirectToAction("Start", new { isInvalidInput = true });
-            }
-
-            var imagePosters = await _imageHandler.GetImagePoster(media + " poster");
-
-            var addMediaModel = new AddMedia
-            {
-                PosterLinks = imagePosters,
-                MediaType = mediaType,
-                Media = media
-            };
-
-            return View(addMediaModel);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

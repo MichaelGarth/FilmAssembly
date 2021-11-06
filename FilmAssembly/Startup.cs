@@ -1,4 +1,5 @@
 using FilmAssembly.Logic;
+using FilmAssembly.Logic.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
