@@ -1,10 +1,12 @@
-using FilmAssembly.Logic;
+﻿using FilmAssembly.Logic;
 using FilmAssembly.Logic.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using FilmAssembly.Data;
 
 namespace FilmAssembly
 {
@@ -16,15 +18,16 @@ namespace FilmAssembly
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
             services.AddSingleton<IImageHandler, ImageHandler>();
-        }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            services.AddDbContext<FilmAssemblyContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("FilmAssemblyContext")));
+        }
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -34,7 +37,6 @@ namespace FilmAssembly
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
@@ -48,7 +50,7 @@ namespace FilmAssembly
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Start}/{id?}");
+                    pattern: "{controller=FilmAssembly}/{action=FilmAssembly}");
             });
         }
     }

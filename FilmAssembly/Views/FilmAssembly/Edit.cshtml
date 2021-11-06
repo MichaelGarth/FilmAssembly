@@ -1,0 +1,69 @@
+﻿@model FilmAssembly.Models.MediaEdit
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Media</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4" id="app">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MediaId" />
+            <div class="form-group">
+                <label asp-for="Poster" class="control-label"></label>
+                <input id="posterInput" asp-for="Poster" class="form-control" />
+                <span asp-validation-for="Poster" class="text-danger"></span>
+                <br />
+
+                <img class="poster selected-image" v-on:click="selectPoster" src="@Model.Poster" height=200 width=150 alt="" />
+
+                @foreach (var link in Model.PosterLinks)
+                {
+                    <img class="poster" v-on:click="selectPoster" src="@link" height=200 width=150 alt="" />
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaType" class="control-label"></label>
+                <input asp-for="MediaType" class="form-control" />
+                <span asp-validation-for="MediaType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genres" class="control-label"></label>
+                <input asp-for="Genres" class="form-control" />
+                <span asp-validation-for="Genres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform" class="control-label"></label>
+                <input asp-for="Platform" class="form-control" />
+                <span asp-validation-for="Platform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="FilmAssembly">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/Edit.js")" type="text/javascript"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,60 @@
+﻿@model FilmAssembly.Models.Media
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Media</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Poster)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Poster)
+        </dd>
+        <dt class="col-sm-2">
+            PosterImage
+        </dt>
+        <dd class="col-sm-10">
+            <img class="poster" src="@Model.Poster" height=200 width=150 alt="" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MediaType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MediaType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genres)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genres)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Platform)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Platform)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-mediaId="@Model.MediaId">Edit</a> |
+    <a asp-action="FilmAssembly">Back to List</a>
+</div>

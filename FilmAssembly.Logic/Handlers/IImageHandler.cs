@@ -6,5 +6,7 @@ namespace FilmAssembly.Logic.Handlers
     public interface IImageHandler
     {
         Task<Posters> GetImagePoster(string image);
+
+        Task<Posters> GetRefreshedPosters(string image, string currentImage);
     }
 }
