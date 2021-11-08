@@ -1,5 +1,4 @@
-﻿using FilmAssembly.Logic;
-using FilmAssembly.Logic.Handlers;
+﻿using FilmAssembly.Logic.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,8 +23,10 @@ namespace FilmAssembly
             services.AddControllersWithViews();
             services.AddSingleton<IImageHandler, ImageHandler>();
 
-            services.AddDbContext<FilmAssemblyContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("FilmAssemblyContext")));
+            //services.AddDbContext<FilmAssemblyContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("FilmAssemblyContext")));
+
+            services.AddDbContext<FilmAssemblyContext>(options => options.UseInMemoryDatabase("FilmAssembly"));
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
